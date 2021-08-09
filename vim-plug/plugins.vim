@@ -16,6 +16,7 @@ Plug 'searleser97/cpbooster.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
