@@ -9,3 +9,4 @@ source $HOME/.config/nvim/themes/onedark.vim
 "source $HOME/.config/nvim/themes/gruvbox.vim
 source $HOME/.config/nvim/themes/airline.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/tree.vim
