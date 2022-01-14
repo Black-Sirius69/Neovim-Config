@@ -1,4 +1,6 @@
 # Neovim-Config
 My neovim configuration
 
-This is my own personal neovim configuration uploaded so that i can use it on multiple computers. Anyone can use it if they want to
+## To Use 
+Clone this configuration to `~/.config/nvim` and open neovim and write `:PlugInstall` to install the plugins
+you also need to see whatever coc plugins you want
