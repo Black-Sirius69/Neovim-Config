@@ -20,6 +20,8 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'projekt0n/github-nvim-theme'  " Github Themes
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+Plug 'nvim-treesitter/playground'
 
 call plug#end()
 
