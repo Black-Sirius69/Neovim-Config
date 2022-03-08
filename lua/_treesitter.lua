@@ -12,7 +12,7 @@ require'nvim-treesitter.configs'.setup {
     -- `false` will disable the whole extension
     enable = true,
 
-    disable = {'lua'},
+    disable = {'lua', 'vim'},
     additional_vim_regex_highlighting = true,
   },
   incremental_selection = {

@@ -1,4 +1,8 @@
-require'nvim-tree'.setup {
+vim.g['actions.open_file.quit_on_open'] = true
+vim.g['actions.open_file.window_picker.enable'] = false
+
+local tree = require('nvim-tree')
+tree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
