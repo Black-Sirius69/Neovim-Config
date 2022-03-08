@@ -34,6 +34,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'rafamadriz/friendly-snippets'
 
 call plug#end()
 
