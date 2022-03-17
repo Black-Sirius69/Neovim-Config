@@ -37,6 +37,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
