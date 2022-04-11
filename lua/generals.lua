@@ -1,0 +1,23 @@
+vim.o.background = "dark"
+vim.opt.hlsearch = false
+vim.opt.errorbells = false
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.swapfile = false
+vim.o.undofile = true
+vim.o.relativenumber = true
+vim.o.incsearch = true
+vim.o.backup = false
+vim.o.smartindent = true
+vim.o.clipboard = "unnamedplus"
+vim.o.colorcolumn = "80"
+vim.o.termguicolors = true
+vim.o.autoread = true
+vim.g.mapleader = "\\"
+vim.o.undodir = vim.fn.stdpath("config") .. "/undodir"
+vim.o.mouse = "a"
+vim.cmd([[colorscheme gruvbox]])
+vim.o.autochdir = true
+vim.o.splitright = true
