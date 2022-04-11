@@ -18,6 +18,5 @@ vim.o.autoread = true
 vim.g.mapleader = "\\"
 vim.o.undodir = vim.fn.stdpath("config") .. "/undodir"
 vim.o.mouse = "a"
-vim.cmd([[colorscheme gruvbox]])
 vim.o.autochdir = true
 vim.o.splitright = true
