@@ -88,9 +88,6 @@ return require("packer").startup(function(use)
 	-- Snippets
 	use("rafamadriz/friendly-snippets")
 
-	-- Symbols Outline
-	use("simrat39/symbols-outline.nvim")
-
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
 	use("Mofiqul/vscode.nvim")
