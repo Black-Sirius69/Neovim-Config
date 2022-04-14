@@ -89,9 +89,19 @@ local mappings = {
 		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
 		d = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
 	},
-	q = { "<cmd>q<CR>", "Quit" },
+	q = { "<cmd>bd<CR>", "Quit" },
 	w = { "<cmd>w<CR>", "Save" },
 	wq = { "<cmd>wq<CR>", "Save and Exit" },
+	t = {
+		name = "Terminal",
+		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		l = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
+	},
 }
 local opts = { prefix = "<leader>" }
 which_key.setup(setup)

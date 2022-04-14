@@ -103,6 +103,39 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	-- Toggle term for terminal settings
+	use({ "akinsho/toggleterm.nvim" })
+
+	-- Discord Presence plugin
+	use("andweeb/presence.nvim")
+
+	-- Crates plugin to get crate version and names easily
+	use({
+		"saecki/crates.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+	})
+
+	-- Extra rust features
+	use("simrat39/rust-tools.nvim")
+
+	-- Tabnine for ai autocompletion as github copilot does not seem to work
+	if vim.fn.has("win32") then
+		use({
+			"tzachar/cmp-tabnine",
+			after = "nvim-cmp",
+			run = "powershell ./install.ps1",
+			requires = "hrsh7th/nvim-cmp",
+		})
+	else
+		use({
+			"tzachar/cmp-tabnine",
+			run = "./install.sh",
+			requires = "hrsh7th/nvim-cmp",
+		})
+	end
 
 	if Packer_bootstrap then
 		require("packer").sync()
