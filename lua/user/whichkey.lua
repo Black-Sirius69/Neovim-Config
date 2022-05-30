@@ -87,7 +87,7 @@ local mappings = {
 		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Info" },
 		s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
 		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
-		d = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+		d = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
 	},
 	q = { "<cmd>bd<CR>", "Quit" },
 	w = { "<cmd>w<CR>", "Save" },
