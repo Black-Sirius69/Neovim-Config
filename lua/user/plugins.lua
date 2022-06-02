@@ -145,6 +145,11 @@ return require("packer").startup(function(use)
     -- Vim-Illuminate smth required by LSP from nvim 0.8 onwards i think
     use { 'RRethy/vim-illuminate' }
 
+    use {
+      'lewis6991/gitsigns.nvim',
+       tag = 'release' -- To use the latest release
+    }
+
 	if Packer_bootstrap then
 		require("packer").sync()
 	end
