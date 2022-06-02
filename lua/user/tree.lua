@@ -1,20 +1,12 @@
 vim.g['actions.open_file.quit_on_open'] = true
 vim.g['actions.open_file.window_picker.enable'] = false
 
-vim.g.nvim_tree_show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1
-}
-
 local tree = require('nvim-tree')
 tree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = false,
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
@@ -66,5 +58,15 @@ tree.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
+  },
+  renderer = {
+      icons = {
+          show = {
+              file = true,
+              folder = true,
+              folder_arrow = true,
+              git = true
+          }
+      }
   }
 }

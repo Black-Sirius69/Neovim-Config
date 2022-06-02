@@ -15,7 +15,6 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "float",
 	close_on_exit = true,
-	shell = [["C:\\Program Files\\nu\\bin\\nu.exe"]],
 	float_opts = {
 		border = "curved",
 		winblend = 0,

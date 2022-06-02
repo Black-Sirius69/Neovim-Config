@@ -82,7 +82,7 @@ local mappings = {
 	},
 	l = {
 		name = "Diagnostics",
-		a = { "<cmd>lua vim.lsp.buf.code-action()<CR>", "Code Actions" },
+		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Variable" },
 		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Info" },
 		s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },

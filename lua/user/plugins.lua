@@ -139,6 +139,12 @@ return require("packer").startup(function(use)
 		})
 	end
 
+    -- Github copilot
+    use ( {'github/copilot.vim'})
+
+    -- Vim-Illuminate smth required by LSP from nvim 0.8 onwards i think
+    use { 'RRethy/vim-illuminate' }
+
 	if Packer_bootstrap then
 		require("packer").sync()
 	end
