@@ -9,8 +9,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
-	print"Installing packer close and reopen neovim"
-	vim.cmd [[packadd packer.nvim]]
+	print("Installing packer close and reopen neovim")
+	vim.cmd([[packadd packer.nvim]])
 end
 
 return require("packer").startup(function(use)
@@ -84,6 +84,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-nvim-lsp-signature-help")
 	use("L3MON4D3/LuaSnip")
 	use("jose-elias-alvarez/null-ls.nvim")
 
@@ -139,16 +140,16 @@ return require("packer").startup(function(use)
 		})
 	end
 
-    -- Github copilot
-    use ( {'github/copilot.vim'})
+	-- Github copilot
+	use({ "github/copilot.vim" })
 
-    -- Vim-Illuminate smth required by LSP from nvim 0.8 onwards i think
-    use { 'RRethy/vim-illuminate' }
+	-- Vim-Illuminate smth required by LSP from nvim 0.8 onwards i think
+	use({ "RRethy/vim-illuminate" })
 
-    use {
-      'lewis6991/gitsigns.nvim',
-       tag = 'release' -- To use the latest release
-    }
+	use({
+		"lewis6991/gitsigns.nvim",
+		tag = "release", -- To use the latest release
+	})
 
 	if Packer_bootstrap then
 		require("packer").sync()

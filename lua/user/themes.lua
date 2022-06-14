@@ -1,4 +1,4 @@
-function set_theme(name)
+local function set_theme(name)
 	if name == "gruvbox" then
 		vim.cmd([[colorscheme gruvbox]])
 	elseif name == "vscode" then
@@ -9,4 +9,4 @@ function set_theme(name)
 	end
 end
 
-set_theme("vscode")
+set_theme("gruvbox")
