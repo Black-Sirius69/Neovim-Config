@@ -14,16 +14,16 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 local conf = {
-    profile = {
-        enable = true,
-        threshold = 0,
-    },
+	profile = {
+		enable = true,
+		threshold = 0,
+	},
 
-    display = {
-        open_fn = function()
-            return require("packer.util").float{border = "rounded"}
-        end,
-    },
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
 }
 
 require("packer").init(conf)
@@ -108,9 +108,12 @@ return require("packer").startup(function(use)
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
-	use({ "Mofiqul/vscode.nvim" })
+	use({ "lunarvim/darkplus.nvim" })
 	use({ "Rigellute/shades-of-purple.vim" })
 	use({ "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" })
+	use({ "navarasu/onedark.nvim" })
+	-- https://github.com/NvChad/base46
+	use({"NvChad/base46"})
 
 	-- Which Key -> To be able to rememeber key bindings
 	use({
@@ -141,7 +144,7 @@ return require("packer").startup(function(use)
 	-- Extra rust features
 	use("simrat39/rust-tools.nvim")
 
-	-- Tabnine for ai autocompletion as github copilot does not seem to work
+	-- Using tabnine because copilot is paid
 	if vim.fn.has("win32") then
 		use({
 			"tzachar/cmp-tabnine",
@@ -157,9 +160,6 @@ return require("packer").startup(function(use)
 		})
 	end
 
-	-- Github copilot
-	use({ "github/copilot.vim" })
-
 	-- Vim-Illuminate smth required by LSP from nvim 0.8 onwards i think
 	use({ "RRethy/vim-illuminate" })
 
@@ -172,4 +172,3 @@ return require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
-
