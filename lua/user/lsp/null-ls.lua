@@ -15,6 +15,6 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
         formatting.clang_format.with({extra_args = {"--style=Microsoft"}}),
 		formatting.stylua,
-		-- diagnostics.flake8
+        formatting.cmake_format,
 	},
 })

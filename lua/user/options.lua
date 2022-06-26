@@ -21,7 +21,7 @@ vim.o.mouse = "a"
 vim.o.autochdir = true
 vim.o.splitright = true
 if vim.g.neovide == true then
-	vim.o.guifont = "Hack Nerd Font:h13"
+	vim.o.guifont = "OperatorMono Nerd Font:h13"
 	vim.g.neovide_cursor_vfx_mode = "ripple"
 	vim.g.neovide_transparency = 0.95
 	vim.g.neovide_floating_opacity = 0.95

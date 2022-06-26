@@ -13,6 +13,21 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
+local conf = {
+    profile = {
+        enable = true,
+        threshold = 0,
+    },
+
+    display = {
+        open_fn = function()
+            return require("packer.util").float{border = "rounded"}
+        end,
+    },
+}
+
+require("packer").init(conf)
+
 return require("packer").startup(function(use)
 	-- Packer.nvim
 	use("wbthomason/packer.nvim")
@@ -84,7 +99,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lsp-signature-help")
+	use("hrsh7th/cmp-nvim-lsp-signature-help")
 	use("L3MON4D3/LuaSnip")
 	use("jose-elias-alvarez/null-ls.nvim")
 
@@ -93,7 +108,9 @@ return require("packer").startup(function(use)
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
-	use("Mofiqul/vscode.nvim")
+	use({ "Mofiqul/vscode.nvim" })
+	use({ "Rigellute/shades-of-purple.vim" })
+	use({ "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" })
 
 	-- Which Key -> To be able to rememeber key bindings
 	use({
@@ -155,3 +172,4 @@ return require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
+
