@@ -6,13 +6,12 @@ require'nvim-treesitter.configs'.setup {
   sync_install = false,
 
   -- List of parsers to ignore installing
-  ignore_install = { "javascript" },
+  ignore_install = { "rnoweb" },
 
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
 
-    disable = {'lua', 'vim'},
     additional_vim_regex_highlighting = true,
   },
   incremental_selection = {
@@ -48,7 +47,7 @@ require'nvim-treesitter.configs'.setup {
     smart_rename = {
       enable = true,
       keymaps = {
-        smart_rename = "grr",
+        smart_rrname = "grr",
       },
     },
   },

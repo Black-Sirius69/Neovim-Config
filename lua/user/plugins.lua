@@ -43,6 +43,8 @@ return require("packer").startup(function(use)
 			{ "ThePrimeagen/git-worktree.nvim" },
 		},
 	})
+	use({"nvim-treesitter/playground"})
+
 	-- Nvim Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -93,15 +95,15 @@ return require("packer").startup(function(use)
 	use("tamago324/nlsp-settings.nvim")
 
 	-- Nvim Completions
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("saadparwaiz1/cmp_luasnip")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lsp-signature-help")
-	use("L3MON4D3/LuaSnip")
-	use("jose-elias-alvarez/null-ls.nvim")
+	use({"hrsh7th/nvim-cmp"})
+	use({"hrsh7th/cmp-buffer"})
+	use({"hrsh7th/cmp-path"})
+	use({"hrsh7th/cmp-cmdline"})
+	use({"saadparwaiz1/cmp_luasnip"})
+	use({"hrsh7th/cmp-nvim-lsp"})
+	use({"hrsh7th/cmp-nvim-lsp-signature-help"})
+	use({"L3MON4D3/LuaSnip"})
+	use({"jose-elias-alvarez/null-ls.nvim"})
 
 	-- Snippets
 	use("rafamadriz/friendly-snippets")
@@ -112,8 +114,7 @@ return require("packer").startup(function(use)
 	use({ "Rigellute/shades-of-purple.vim" })
 	use({ "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" })
 	use({ "navarasu/onedark.nvim" })
-	-- https://github.com/NvChad/base46
-	use({"NvChad/base46"})
+	use({ "sainnhe/everforest" })
 
 	-- Which Key -> To be able to rememeber key bindings
 	use({

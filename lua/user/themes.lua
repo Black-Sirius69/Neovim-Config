@@ -12,7 +12,13 @@ local function set_theme(name)
 			style = "darker",
 		})
 		require("onedark").load()
+    elseif name == "everforest" then
+        vim.cmd[[
+        let g:everforest_background = 'hard'
+        let g:everforest_better_performance = 1
+        colorscheme everforest
+        ]]
     end
 end
 
-set_theme("onedark")
+set_theme("everforest")
