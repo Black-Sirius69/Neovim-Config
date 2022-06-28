@@ -13,7 +13,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
-        formatting.clang_format.with({extra_args = {"--style=Microsoft"}}),
+        formatting.clang_format.with({extra_args = {"--style=LLVM"}}),
 		formatting.stylua,
         formatting.cmake_format,
 	},

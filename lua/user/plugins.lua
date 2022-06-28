@@ -1,5 +1,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
 	Packer_bootstrap = fn.system({
 		"git",
@@ -32,7 +33,6 @@ return require("packer").startup(function(use)
 	-- Packer.nvim
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
-	use("windwp/nvim-autopairs") -- Autopairs for brackets and qoutes
 
 	-- Telescope.nvim
 	use({
@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
 			{ "ThePrimeagen/git-worktree.nvim" },
 		},
 	})
-	use({"nvim-treesitter/playground"})
+	use({ "nvim-treesitter/playground" })
 
 	-- Nvim Treesitter
 	use({
@@ -69,16 +69,13 @@ return require("packer").startup(function(use)
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
-		config = function()
-			require("nvim-tree").setup({})
-		end,
 	})
 
 	-- Comment.nvim
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
-			require("Comment").setup()
+			require("user.comment")
 		end,
 	})
 
@@ -90,23 +87,46 @@ return require("packer").startup(function(use)
 	})
 
 	-- Nvim LSP and required plugins
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
-	use("tamago324/nlsp-settings.nvim")
+	use({
+		"williamboman/nvim-lsp-installer",
+		after = "nvim-lspconfig",
+		config = function()
+			require("user.lsp")
+		end,
+	})
+	use({
+		"neovim/nvim-lspconfig",
+	})
+	use({ "tamago324/nlsp-settings.nvim", after = "nvim-lsp-installer" })
 
 	-- Nvim Completions
-	use({"hrsh7th/nvim-cmp"})
-	use({"hrsh7th/cmp-buffer"})
-	use({"hrsh7th/cmp-path"})
-	use({"hrsh7th/cmp-cmdline"})
-	use({"saadparwaiz1/cmp_luasnip"})
-	use({"hrsh7th/cmp-nvim-lsp"})
-	use({"hrsh7th/cmp-nvim-lsp-signature-help"})
-	use({"L3MON4D3/LuaSnip"})
-	use({"jose-elias-alvarez/null-ls.nvim"})
+	use({
+		"hrsh7th/nvim-cmp",
+		after = "friendly-snippets",
+		config = function()
+			require("user.cmp")
+		end,
+	})
+	use({ "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-path", after = "cmp-buffer" })
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
+	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "cmp-nvim-lsp" })
+	use({ "L3MON4D3/LuaSnip", wants = "friendly-snippets"})
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+	})
+	use({
+		"windwp/nvim-autopairs",
+		after = "nvim-cmp",
+		config = function()
+			require("user.autopairs")
+		end,
+	}) -- Autopairs for brackets and qoutes
 
 	-- Snippets
-	use("rafamadriz/friendly-snippets")
+	use({ "rafamadriz/friendly-snippets", module="cmp_nvim_lsp", event="InsertEnter" })
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
@@ -120,11 +140,7 @@ return require("packer").startup(function(use)
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("user.whichkey")
 		end,
 	})
 	-- Toggle term for terminal settings
@@ -137,13 +153,14 @@ return require("packer").startup(function(use)
 	use({
 		"saecki/crates.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
+		after = "nvim-cmp",
 		config = function()
-			require("crates").setup()
+			require("user.crates")
 		end,
 	})
 
 	-- Extra rust features
-	use("simrat39/rust-tools.nvim")
+	use({ "simrat39/rust-tools.nvim" })
 
 	-- Using tabnine because copilot is paid
 	if vim.fn.has("win32") then
