@@ -96,6 +96,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"neovim/nvim-lspconfig",
+        after="nvim-cmp"
 	})
 	use({ "tamago324/nlsp-settings.nvim", after = "nvim-lsp-installer" })
 
@@ -109,13 +110,14 @@ return require("packer").startup(function(use)
 	})
 	use({ "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-path", after = "cmp-buffer" })
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" })
-	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
-	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lsp" })
+	use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
+	use({ "hrsh7th/cmp-nvim-lsp", after="nvim-lspconfig" })
 	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "cmp-nvim-lsp" })
 	use({ "L3MON4D3/LuaSnip", wants = "friendly-snippets"})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
+        after="nvim-lspconfig"
 	})
 	use({
 		"windwp/nvim-autopairs",

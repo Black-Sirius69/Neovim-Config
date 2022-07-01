@@ -21,4 +21,4 @@ local function set_theme(name)
     end
 end
 
-set_theme("everforest")
+set_theme("onedark")
