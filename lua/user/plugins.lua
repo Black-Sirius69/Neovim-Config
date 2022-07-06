@@ -74,9 +74,6 @@ return require("packer").startup(function(use)
     -- Comment.nvim
     use({
         "numToStr/Comment.nvim",
-        config = function()
-            require("user.comment")
-        end,
     })
 
     -- Buffer Line
@@ -89,42 +86,29 @@ return require("packer").startup(function(use)
     -- Nvim LSP and required plugins
     use({
         "williamboman/nvim-lsp-installer",
-        after = "nvim-lspconfig",
-        config = function()
-            require("user.lsp")
-        end,
     })
     use({
         "neovim/nvim-lspconfig",
-        after = "nvim-cmp"
     })
-    use({ "tamago324/nlsp-settings.nvim", after = "nvim-lsp-installer" })
+    use({ "tamago324/nlsp-settings.nvim"})
 
     -- Nvim Completions
     use({
         "hrsh7th/nvim-cmp",
-        after = "friendly-snippets",
-        config = function()
-            require("user.cmp")
-        end,
     })
-    use({ "hrsh7th/cmp-buffer", after = "cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-path", after = "cmp-buffer" })
-    use({ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lsp" })
-    use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
-    use({ "hrsh7th/cmp-nvim-lsp", after = "nvim-lspconfig" })
-    use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "cmp-nvim-lsp" })
+    use({ "hrsh7th/cmp-buffer"})
+    use({ "hrsh7th/cmp-path"})
+    use({ "hrsh7th/cmp-cmdline"})
+    use({ "saadparwaiz1/cmp_luasnip"})
+    use({ "hrsh7th/cmp-nvim-lsp"})
+    use({ "hrsh7th/cmp-nvim-lsp-signature-help"})
     use({ "L3MON4D3/LuaSnip", wants = "friendly-snippets" })
     use({
         "windwp/nvim-autopairs",
-        after = "nvim-cmp",
-        config = function()
-            require("user.autopairs")
-        end,
     }) -- Autopairs for brackets and qoutes
 
     -- Snippets
-    use({ "rafamadriz/friendly-snippets", module = "cmp_nvim_lsp", event = "InsertEnter" })
+    use({ "rafamadriz/friendly-snippets"})
 
     -- Themes
     use({ "ellisonleao/gruvbox.nvim" })
@@ -137,9 +121,6 @@ return require("packer").startup(function(use)
     -- Which Key -> To be able to rememeber key bindings
     use({
         "folke/which-key.nvim",
-        config = function()
-            require("user.whichkey")
-        end,
     })
     -- Toggle term for terminal settings
     use({ "akinsho/toggleterm.nvim" })
@@ -151,10 +132,6 @@ return require("packer").startup(function(use)
     use({
         "saecki/crates.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-        after = "nvim-cmp",
-        config = function()
-            require("user.crates")
-        end,
     })
 
     -- Extra rust features
@@ -164,7 +141,6 @@ return require("packer").startup(function(use)
     if vim.fn.has("win32") then
         use({
             "tzachar/cmp-tabnine",
-            after = "nvim-cmp",
             run = "powershell ./install.ps1",
             requires = "hrsh7th/nvim-cmp",
         })

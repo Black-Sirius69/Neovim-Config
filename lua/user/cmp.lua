@@ -138,13 +138,13 @@ cmp.setup({
 
 	sources = {
         {name = 'cmdline'},
-		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "crates" },
 		{ name = "cmp_tabnine" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lsp" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

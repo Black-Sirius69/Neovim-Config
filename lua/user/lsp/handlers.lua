@@ -86,6 +86,7 @@ capabilities.offsetEncoding = "utf-8"
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
+    print("nvim cmp lsp not found")
 	return
 end
 
