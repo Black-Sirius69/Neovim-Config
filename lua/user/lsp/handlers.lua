@@ -42,7 +42,8 @@ M.setup = function()
 		border = "rounded",
 	})
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, signs = true})
+	vim.lsp.handlers["textDocument/publishDiagnostics"] =
+		vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, signs = true })
 end
 
 local function lsp_highlight_document(client)
@@ -50,20 +51,20 @@ local function lsp_highlight_document(client)
 	-- if client.resolved_capabilities.document_highlight then
 	-- 	vim.api.nvim_exec(
 	-- 		[[
- --      augroup lsp_document_highlight
- --        autocmd! * <buffer>
- --        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
- --        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
- --      augroup END
- --    ]],
+	--      augroup lsp_document_highlight
+	--        autocmd! * <buffer>
+	--        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+	--        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+	--      augroup END
+	--    ]],
 	-- 		false
 	-- 	)
 	-- end
-    local status_ok, illuminate = pcall(require, "illuminate")
-    if not status_ok then
-        return
-    end
-    illuminate.on_attach(client)
+	local status_ok, illuminate = pcall(require, "illuminate")
+	if not status_ok then
+		return
+	end
+	illuminate.on_attach(client)
 end
 
 local function lsp_keymaps(bufnr)
@@ -77,6 +78,13 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	if client.name == "tsserver" then
+		client.resolved_capabilities.document_formatting = false
+	elseif client.name == "clangd" then
+		client.resolved_capabilities.document_formatting = false
+	elseif client.name == "sumneko_lua" then
+		client.resolved_capabilities.document_formatting = false
+	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
@@ -86,7 +94,7 @@ capabilities.offsetEncoding = "utf-8"
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-    print("nvim cmp lsp not found")
+	print("nvim cmp lsp not found")
 	return
 end
 
