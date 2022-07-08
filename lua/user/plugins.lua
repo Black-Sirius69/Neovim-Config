@@ -129,6 +129,7 @@ return require("packer").startup(function(use)
 
 	-- Extra rust features
 	use({ "simrat39/rust-tools.nvim" })
+    use({ "mfussenegger/nvim-dap" })
 
 	-- Using tabnine because copilot is paid
 	if vim.fn.has("win32") then

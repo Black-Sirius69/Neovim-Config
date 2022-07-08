@@ -3,20 +3,67 @@ if not status_ok then
 	return
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-	local opts = {
+local servers = {
+	"rust_analyzer",
+	"taplo",
+	"clangd",
+	"pyright",
+	"jsonls",
+	"emmet_ls",
+	"marksman",
+	"texlab",
+	"tsserver",
+}
+
+local settings = {
+	ensure_installed = servers,
+	ui = {
+		icons = {},
+		keymaps = {
+			toggle_server_expand = "<CR>",
+			install_server = "i",
+			update_server = "u",
+			check_server_version = "c",
+			update_all_servers = "U",
+			check_outdated_servers = "C",
+			uninstall_server = "X",
+		},
+	},
+
+	log_level = vim.log.levels.INFO,
+}
+
+lsp_installer.setup(settings)
+
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
+
+local opts = {}
+
+for _, server in pairs(servers) do
+	opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
 	}
 
-	if server.name == "sumneko_lua" then
+	if server == "sumneko_lua" then
 		local sumneko_opts = require("user.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	server:setup(opts)
-end)
+	if server == "rust_analyzer" then
+		local rust_opts = require("user.lsp.settings.rust")
+
+		local rust_status_ok, rust_tools = pcall(require, "rust-tools")
+		if not rust_status_ok then
+			return
+		end
+		rust_tools.setup(rust_opts)
+		goto continue
+	end
+
+	lspconfig[server].setup(opts)
+	::continue::
+end
