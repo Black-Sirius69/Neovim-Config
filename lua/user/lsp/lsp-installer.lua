@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local servers = {
+    "sumneko_lua",
 	"rust_analyzer",
 	"taplo",
 	"clangd",

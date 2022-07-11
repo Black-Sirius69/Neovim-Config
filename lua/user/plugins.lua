@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 	-- Packer.nvim
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
-
+    use("stevearc/dressing.nvim") -- Ui Plugin for good looking 
 	-- Telescope.nvim
 	use({
 		"nvim-telescope/telescope-fzy-native.nvim",
