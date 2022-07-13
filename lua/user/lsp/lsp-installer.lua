@@ -7,7 +7,7 @@ local servers = {
     "sumneko_lua",
 	"rust_analyzer",
 	"taplo",
-	"clangd",
+	"ccls",
 	"pyright",
 	"jsonls",
 	"emmet_ls",
@@ -31,7 +31,7 @@ local settings = {
 		},
 	},
 
-	log_level = vim.log.levels.INFO,
+	log_level = vim.log.levels.debug,
 }
 
 lsp_installer.setup(settings)
@@ -50,6 +50,7 @@ for _, server in pairs(servers) do
 	}
 
 	if server == "sumneko_lua" then
+
 		local sumneko_opts = require("user.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
@@ -64,6 +65,7 @@ for _, server in pairs(servers) do
 		rust_tools.setup(rust_opts)
 		goto continue
 	end
+
 
 	lspconfig[server].setup(opts)
 	::continue::

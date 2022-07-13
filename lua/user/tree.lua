@@ -44,7 +44,9 @@ tree.setup({
 		side = "left",
 		mappings = {
 			custom_only = false,
-			list = {},
+			list = {
+                {key = "<C-[>", action = "dir_up"}
+            },
 		},
 		number = false,
 		relativenumber = false,

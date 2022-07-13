@@ -131,6 +131,9 @@ return require("packer").startup(function(use)
 	use({ "simrat39/rust-tools.nvim" })
     use({ "mfussenegger/nvim-dap" })
 
+    -- Symbols outline plugin for overview of files
+    use({ "simrat39/symbols-outline.nvim"})
+
 	-- Using tabnine because copilot is paid
 	if vim.fn.has("win32") then
 		use({
