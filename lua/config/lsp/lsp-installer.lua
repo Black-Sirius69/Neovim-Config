@@ -42,24 +42,34 @@ end
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("plugins.config.lsp.handlers").on_attach,
-		capabilities = require("plugins.config.lsp.handlers").capabilities,
+		on_attach = require("config.lsp.handlers").on_attach,
+		capabilities = require("config.lsp.handlers").capabilities,
 	}
 	server = vim.split(server, "@")[1]
 
 	if server == "sumneko_lua" then
-		local sumneko_opts = require("plugins.config.lsp.settings.sumneko_lua")
+		local sumneko_opts = require("config.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 	if server == "clangd" then
 		opts.capabilities.offsetEncoding = "utf-8"
+        local cpp_status_ok, clangd = pcall(require, "clangd_extensions")
+        if not cpp_status_ok then
+            return 
+        end
+        clangd.setup({
+            server = {
+                lspconfig[server].setup(opts)
+            }
+        })
+        goto continue
 	end
 	if server == "rust_analyzer" then
+        local rust_opts = require("config.lsp.settings.rust")
 		local rust_status_ok, rust = pcall(require, "rust-tools")
 		if not rust_status_ok then
 			return
 		end
-        local rust_opts = require("plugins.config.lsp.settings.rust")
         rust.setup(rust_opts)
         goto continue
 	end

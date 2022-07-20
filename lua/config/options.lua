@@ -18,6 +18,4 @@ vim.o.incsearch = true
 vim.o.autochdir = true
 vim.o.cursorline = true
 vim.o.completeopt = "menuone,noinsert,noselect"
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.g.mapleader = " "

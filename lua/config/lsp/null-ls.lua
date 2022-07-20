@@ -15,7 +15,7 @@ null_ls.setup({
     },
         formatting.black.with({ extra_args = {"--fast"} }),
         formatting.stylua,
-        formatting.clang_format.with({extra_args = {"-style=gnu"}}),
+        formatting.clang_format.with({extra_args = {"-style=llvm"}}),
         diagnostics.flake8
     }
 })
